@@ -1,0 +1,89 @@
+@import url("../../../app.scss");
+.actionbar {
+  background-color: rgb(255, 40, 40);
+}
+.actionbar Label {
+  color: aliceblue;
+}
+.actionbar.ns-dark {
+  background-color: #1D1D1D;
+}
+
+.spinner {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.settings {
+  background-color: aliceblue;
+  padding: 10 12;
+}
+.settings.ns-dark {
+  background-color: #1D1D1D;
+}
+.settings__horizontal__line {
+  height: 2;
+  width: 50;
+  background-color: #c0c0c0;
+  margin-right: 15;
+}
+.settings__title {
+  color: rgb(23, 23, 26);
+  width: auto;
+  font-size: 18;
+  font-weight: 500;
+  margin-bottom: 10;
+}
+.settings__title.ns-dark {
+  color: aliceblue;
+}
+.settings__category {
+  color: rgb(23, 23, 26);
+  font-size: 15;
+  padding: 5;
+  width: auto;
+  height: auto;
+}
+.settings__category.ns-dark {
+  color: aliceblue;
+}
+.settings__link {
+  padding: 10 20;
+  margin: 10 0;
+  border-radius: 40;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.refresh__icon {
+  background-color: rgba(107, 107, 107, 0.4);
+  padding: 10;
+  border-radius: 50;
+}
+
+.loader {
+  width: 48;
+  height: 48;
+  border-radius: 50;
+  background: aliceblue;
+  animation: animloader 2s ease-in-out infinite;
+}
+.loader__2 {
+  width: 48;
+  height: 48;
+  transform: scale(0);
+  border-radius: 50;
+  background: rgb(255, 40, 40);
+  animation: animloader 2s ease-in-out 1s infinite;
+}
+
+@keyframes animloader {
+  0%, 100% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}/*# sourceMappingURL=settings.component.css.map */

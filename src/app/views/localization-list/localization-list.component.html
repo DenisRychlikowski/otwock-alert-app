@@ -1,0 +1,55 @@
+<GridLayout rows="*, auto">
+    <ActionBar class="actionbar">
+        <GridLayout columns="auto, *, auto">
+            <Label col="0" text="Lista lokalizacji" fontSize="24"></Label>
+        </GridLayout>
+    </ActionBar>
+
+    <FlexboxLayout flexDirection="column" class="location">
+        <button class="location__btn" text="Dodaj lokalizację" [nsRouterLink]="['/views/add-location-page']"></button>
+        <FlexboxLayout flexDirection="column" *ngIf="isArrayEmpty() && connectionType != '0'; else noData" margin="10">
+            <StackLayout class="location__container" *ngFor="let location of locationsList">
+                <FlexboxLayout class="location__container__element" justifyContent="space-between">
+                    <Label class="location__container__element__text" textWrap="true" [text]="location.address"></Label>
+                    <Label class="fas location__container__element__icon" text="&#xf057;"
+                        (tap)="showWarnModal(location)"></Label>
+                </FlexboxLayout>
+            </StackLayout>
+        </FlexboxLayout>
+        <ng-template #noData>
+            <FlexboxLayout flexDirection="column" justifyContent="center" alignItems="center">
+                <Label text="Brak lokalizacji"></Label>
+                <Label text="&#xf01e;" class="fas refresh__icon" (tap)="refresh()"></Label>
+            </FlexboxLayout>
+        </ng-template>
+    </FlexboxLayout>
+
+    <AbsoluteLayout>
+        <FlexboxLayout *ngIf="isLocationsLoad" top="0" left="0" justifyContent="center" alignItems="center" class="spinner">
+            <FlexboxLayout class="loader">
+                <Label class="loader__2"></Label>
+            </FlexboxLayout>
+        </FlexboxLayout>
+
+        <ns-connection-modal></ns-connection-modal>
+    </AbsoluteLayout>
+
+    <FlexboxLayout width="100%" class="modal" justifyContent="center" alignItems="center" *ngIf="isWarnShow">
+        <FlexboxLayout class="location__modal" flexDirection="column">
+            <FlexboxLayout justifyContent="space-between">
+                <Label text="Uwaga!" textWrap="true"></Label>
+                <Label class="fas" (tap)="closeModal()" text="&#xf00d;"></Label>
+            </FlexboxLayout>
+            <FlexboxLayout flexDirection="column" top="10">
+                <Label text="Czy na pewno chcesz usunąć lokalizację?" class="location__modal__description"
+                    textWrap="true"></Label>
+                <FlexboxLayout justifyContent="space-around" paddingTop="15">
+                    <Label text="Tak" (tap)="removeLocation()"></Label>
+                    <Label text="Anuluj" (tap)="closeModal()"></Label>
+                </FlexboxLayout>
+            </FlexboxLayout>
+        </FlexboxLayout>
+    </FlexboxLayout>
+
+    <ns-bottom-nav></ns-bottom-nav>
+</GridLayout>

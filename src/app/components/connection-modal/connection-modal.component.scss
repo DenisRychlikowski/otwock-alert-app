@@ -1,0 +1,29 @@
+$light-white: aliceblue;
+$dark-black: #1D1D1D;
+$red: rgb(255, 40, 40);
+$red-easy: rgba(255, 40, 40, 0.8);
+
+.alert__modal {
+    background-color: $red-easy;
+    color: $light-white;
+    width: 80%;
+    border-radius: 15 0 15 0;
+    padding: 20 30;
+    font-size: 18;
+    font-weight: 600;
+
+    &.ns-dark {
+        background-color: $dark-black;
+        color: $light-white;
+    }
+
+    &__description {
+        color: $light-white;
+        font-size: 14;
+        font-weight: 500;
+
+        &.ns-dark {
+            color: $light-white;
+        }
+    }
+}

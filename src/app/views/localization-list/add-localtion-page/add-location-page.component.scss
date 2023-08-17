@@ -1,0 +1,111 @@
+@import url("../../../../app.scss");
+
+$gray-light: rgba(27, 52, 116, 0.4);
+$gray-dark: rgba(23, 23, 26, 1);
+$dark-black: #1D1D1D;
+$light-white: aliceblue;
+$neon-blue: rgb(34, 114, 255);
+$electric-blue: rgba(1, 36, 125, 0.4);
+$neon-blue-easy: rgba(34, 114, 255, 0.4);
+$dark-white: rgba(218, 218, 218, 0.8);
+$pastel-red: rgba(254, 58, 58, 1);
+$pastel-green: #C1E1C1;
+$succes-green: #4BB543;
+$red: rgb(255, 40, 40);
+$red-easy: rgba(255, 40, 40, 0.8);
+
+
+.actionbar {
+    background-color: $red;
+
+    Label {
+        color: $light-white;
+    }
+
+    &.ns-dark {
+        background-color: $dark-black;
+    }
+}
+
+.location {
+    background-color: $light-white;
+
+    &.ns-dark {
+        background-color: $dark-black;
+    }
+
+    height: 100%;
+    width: 100%;
+
+    &__modal {
+        background-color: $succes-green;
+        color: $light-white;
+        width: 100%;
+        padding: 20 30;
+        font-size: 22;
+        font-weight: 500;
+
+        &.ns-dark {
+            background-color: $succes-green;
+            color: $light-white;
+        }
+
+        &__description {
+            color: $light-white;
+            font-size: 18;
+
+            &.ns-dark {
+                color: $light-white;
+            }
+        }
+    }
+
+    &__form {
+        padding: 10;
+
+        Label.title {
+            color: $light-white;
+            padding: 0 8;
+
+            &.ns-light {
+                color: $dark-black;
+            }
+        }
+
+        &__field {
+            background-color: $dark-white;
+            color: #1D1D1D;
+            placeholder-color: $gray-light;
+            text-transform: capitalize;
+            font-size: 18;
+            padding: 6;
+            border-radius: 50;
+            margin: 5 8;
+            width: 150;
+            border-width: 1;
+            border-color: $neon-blue-easy;
+        }
+
+        &__btn {
+            background-color: $red;
+
+            &.ns-dark {
+                background-color: $neon-blue;
+            }
+
+            color: $light-white;
+            font-size: 20;
+            padding: 8;
+            border-radius: 5;
+            margin-top: 10;
+        }
+    }
+}
+
+.list__item {
+    color: $gray-dark;
+
+    &.ns-dark {
+        color: $light-white;
+    }
+}

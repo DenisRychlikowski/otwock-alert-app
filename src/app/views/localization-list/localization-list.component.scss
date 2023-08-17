@@ -1,0 +1,143 @@
+@import url("../../../app.scss");
+
+$gray-dark: rgba(23, 23, 26, 1);
+$dark-black: #1D1D1D;
+$light-white: aliceblue;
+$neon-blue: #2272FF;
+$red: rgb(255, 40, 40);
+$red-easy: rgba(255, 40, 40, 0.8);
+
+.actionbar {
+    background-color: $red;
+
+    Label {
+        color: $light-white;
+    }
+
+    &.ns-dark {
+        background-color: $dark-black;
+    }
+}
+
+.spinner {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.location {
+    background-color: $light-white;
+    width: 100%;
+
+    &.ns-dark {
+        background-color: $dark-black;
+    }
+
+    &__modal {
+        background-color: $red-easy;
+        color: $light-white;
+        width: 80%;
+        border-radius: 15 0 15 0;
+        padding: 20 30;
+        font-size: 18;
+        font-weight: 600;
+
+        &.ns-dark {
+            background-color: $dark-black;
+            color: $light-white;
+        }
+
+        &__description {
+            color: $light-white;
+            font-size: 16;
+            font-weight: 500;
+
+
+            &.ns-dark {
+                color: $light-white;
+            }
+        }
+    }
+
+    &__btn {
+        background-color: $red;
+        color: $light-white;
+        font-size: 20;
+        padding: 8;
+        border-radius: 5;
+
+        &.ns-dark {
+            background-color: $neon-blue;
+            color: $light-white;
+        }
+    }
+
+    &__container {
+        color: $dark-black;
+
+        &.ns-dark {
+            color: $light-white;
+        }
+
+        &__element {
+            height: auto;
+            padding: 10;
+
+            &__text {
+                width: 260;
+            }
+
+            &__icon {
+                font-size: 24;
+            }
+        }
+    }
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+
+    &.ns-dark {
+        background-color: rgba(0, 0, 0, 0.6);
+        height: 100%;
+    }
+}
+
+.refresh__icon {
+    background-color: rgba(107, 107, 107, 0.4);
+    padding: 10;
+    border-radius: 50;
+}
+
+
+.loader {
+    width: 48;
+    height: 48;
+    border-radius: 50;
+    background: $light-white;
+    animation: animloader 2s ease-in-out infinite;
+
+    &__2 {
+        width: 48;
+        height: 48;
+        transform: scale(0);
+        border-radius: 50;
+        background: $red;
+        animation: animloader 2s ease-in-out 1s infinite;
+    }
+}
+
+@keyframes animloader {
+
+    0%,
+    100% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}

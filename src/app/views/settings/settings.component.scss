@@ -1,0 +1,111 @@
+@import url("../../../app.scss");
+
+$gray-dark: rgba(23, 23, 26, 1);
+$dark-black: #1D1D1D;
+$light-white: aliceblue;
+$red: rgb(255, 40, 40);
+$red-easy: rgba(255, 40, 40, 0.8);
+
+.actionbar {
+    background-color: $red;
+
+    Label {
+        color: $light-white;
+    }
+
+    &.ns-dark {
+        background-color: $dark-black;
+    }
+}
+
+.spinner {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.settings {
+    background-color: $light-white;
+
+    &.ns-dark {
+        background-color: $dark-black;
+    }
+
+    padding: 10 12;
+
+    &__horizontal__line {
+        height: 2;
+        width: 50;
+        background-color: #c0c0c0;
+        margin-right: 15;
+    }
+
+    &__title {
+        color: $gray-dark;
+        width: auto;
+        font-size: 18;
+        font-weight: 500;
+        margin-bottom: 10;
+
+        &.ns-dark {
+            color: $light-white;
+        }
+    }
+
+    &__category {
+        color: $gray-dark;
+        font-size: 15;
+        padding: 5;
+        width: auto;
+        height: auto;
+
+        &.ns-dark {
+            color: $light-white;
+        }
+    }
+
+    &__link {
+        padding: 10 20;
+        margin: 10 0;
+        border-radius: 40;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+}
+
+.refresh__icon {
+    background-color: rgba(107, 107, 107, 0.4);
+    padding: 10;
+    border-radius: 50;
+}
+
+
+.loader {
+    width: 48;
+    height: 48;
+    border-radius: 50;
+    background: $light-white;
+    animation: animloader 2s ease-in-out infinite;
+
+    &__2 {
+        width: 48;
+        height: 48;
+        transform: scale(0);
+        border-radius: 50;
+        background: $red;
+        animation: animloader 2s ease-in-out 1s infinite;
+    }
+}
+
+@keyframes animloader {
+
+    0%,
+    100% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}

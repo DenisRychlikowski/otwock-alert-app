@@ -1,0 +1,13 @@
+.active-link {
+  color: rgb(255, 40, 40);
+}
+.active-link.ns-dark {
+  color: #2272FF;
+}
+
+.menu.ns-dark {
+  background-color: aqua !important;
+}
+.menu__label {
+  font-size: 12;
+}/*# sourceMappingURL=bottom-nav.component.css.map */

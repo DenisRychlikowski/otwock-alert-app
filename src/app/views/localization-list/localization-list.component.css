@@ -1,0 +1,114 @@
+@import url("../../../app.scss");
+.actionbar {
+  background-color: rgb(255, 40, 40);
+}
+.actionbar Label {
+  color: aliceblue;
+}
+.actionbar.ns-dark {
+  background-color: #1D1D1D;
+}
+
+.spinner {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.location {
+  background-color: aliceblue;
+  width: 100%;
+}
+.location.ns-dark {
+  background-color: #1D1D1D;
+}
+.location__modal {
+  background-color: rgba(255, 40, 40, 0.8);
+  color: aliceblue;
+  width: 80%;
+  border-radius: 15 0 15 0;
+  padding: 20 30;
+  font-size: 18;
+  font-weight: 600;
+}
+.location__modal.ns-dark {
+  background-color: #1D1D1D;
+  color: aliceblue;
+}
+.location__modal__description {
+  color: aliceblue;
+  font-size: 16;
+  font-weight: 500;
+}
+.location__modal__description.ns-dark {
+  color: aliceblue;
+}
+.location__btn {
+  background-color: rgb(255, 40, 40);
+  color: aliceblue;
+  font-size: 20;
+  padding: 8;
+  border-radius: 5;
+}
+.location__btn.ns-dark {
+  background-color: #2272FF;
+  color: aliceblue;
+}
+.location__container {
+  color: #1D1D1D;
+}
+.location__container.ns-dark {
+  color: aliceblue;
+}
+.location__container__element {
+  height: auto;
+  padding: 10;
+}
+.location__container__element__text {
+  width: 260;
+}
+.location__container__element__icon {
+  font-size: 24;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+}
+.modal.ns-dark {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+}
+
+.refresh__icon {
+  background-color: rgba(107, 107, 107, 0.4);
+  padding: 10;
+  border-radius: 50;
+}
+
+.loader {
+  width: 48;
+  height: 48;
+  border-radius: 50;
+  background: aliceblue;
+  animation: animloader 2s ease-in-out infinite;
+}
+.loader__2 {
+  width: 48;
+  height: 48;
+  transform: scale(0);
+  border-radius: 50;
+  background: rgb(255, 40, 40);
+  animation: animloader 2s ease-in-out 1s infinite;
+}
+
+@keyframes animloader {
+  0%, 100% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}/*# sourceMappingURL=localization-list.component.css.map */

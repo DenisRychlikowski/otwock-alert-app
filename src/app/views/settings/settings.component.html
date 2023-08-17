@@ -1,0 +1,59 @@
+<GridLayout rows="*, auto, auto">
+    <ActionBar class="actionbar">
+        <GridLayout columns="auto, *, auto, auto">
+            <Label col="0" text="Ustawienia" fontSize="24"></Label>
+        </GridLayout>
+    </ActionBar>
+
+    <AbsoluteLayout>
+        <ScrollView orientation="vertical" height="100%" width="100%">
+            <FlexboxLayout flexDirection="column" class="settings">
+                <Label text="Ustawienia powiadomień" class="settings__title"></Label>
+                <Label text="" class="settings__horizontal__line"></Label>
+                <FlexboxLayout justifyContent="space-between">
+                    <Label text="Włącz powiadomienia push" class="settings__category" textWrap="true"
+                        horizontalAlignment="left"></Label>
+                    <Switch color="#2272FF" backgroundColor="#01247db3" offBackgroundColor="#42454785"
+                        (tap)="toogleSwitchView()" [(ngModel)]="isSwitchChecked"></Switch>
+                </FlexboxLayout>
+                <FlexboxLayout flexDirection="column" class="settings-view" *ngIf="pushAllow && showSettings; else noData">
+                    <Label text="Chce otrzymywać powiadomienia dla:" class="settings__title"></Label>
+                    <Label text="" class="settings__horizontal__line"></Label>
+                    <FlexboxLayout justifyContent="space-between" *ngFor="let category of categories">
+                        <Label [text]="category.name" class="settings__category" textWrap="true"></Label>
+                        <Switch color="#2272FF" backgroundColor="#01247db3" offBackgroundColor="#42454785"
+                            [checked]="checkDeviceActive(category.id)" (tap)="postDeviceActive(category.id)"></Switch>
+                    </FlexboxLayout>
+                </FlexboxLayout>
+                <ng-template #noData>
+                    <FlexboxLayout flexDirection="column" justifyContent="center" alignItems="center">
+                        <Label text="Brak internetu"></Label>
+                        <Label text="&#xf01e;" class="fas refresh__icon" (tap)="refresh()"></Label>
+                    </FlexboxLayout>
+                </ng-template>
+                <FlexboxLayout flexDirection="column">
+                    <Label text="O aplikacji" class="settings__title"></Label>
+                    <Label text="" class="settings__horizontal__line"></Label>
+                    <FlexboxLayout justifyContent="space-between" alignItems="center" nsRouterLink="/views/settings/privacy-policy" class="settings__link">
+                        <Label text="Polityka prywatności" class="settings__link__text"></Label>
+                        <Label class="fas" text="&#xf054;"></Label>
+                    </FlexboxLayout>
+                    <FlexboxLayout justifyContent="space-between" alignItems="center" nsRouterLink="/views/settings/regulations" class="settings__link">
+                        <Label text="Regulamin" class="settings__link__text"></Label>
+                        <Label class="fas" text="&#xf054;"></Label>
+                    </FlexboxLayout>
+                </FlexboxLayout>
+            </FlexboxLayout>
+        </ScrollView>
+        <FlexboxLayout top="0" left="0" class="spinner" *ngIf="isCategoryLoad" justifyContent="center"
+            alignItems="center">
+            <FlexboxLayout class="loader">
+                <Label class="loader__2"></Label>
+            </FlexboxLayout>
+        </FlexboxLayout>
+
+        <ns-connection-modal></ns-connection-modal>
+    </AbsoluteLayout>
+
+    <ns-bottom-nav></ns-bottom-nav>
+</GridLayout>

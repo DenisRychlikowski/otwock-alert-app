@@ -1,0 +1,21 @@
+$light-white: aliceblue;
+$dark-black: #1D1D1D;
+$red: rgb(255, 40, 40);
+
+.active-link {
+    color: $red;
+    
+    &.ns-dark{
+        color: #2272FF;
+    }
+}
+
+.menu {
+    &.ns-dark{
+        background-color: aqua !important;
+    }
+
+    &__label {
+        font-size: 12;
+    }
+}

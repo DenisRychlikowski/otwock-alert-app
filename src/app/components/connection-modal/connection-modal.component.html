@@ -1,0 +1,11 @@
+<FlexboxLayout top="30" width="100%" justifyContent="center" alignItems="center">
+    <FlexboxLayout class="alert__modal" flexDirection="column" *ngIf="connectionType == 'None' && showModal == true">
+        <FlexboxLayout justifyContent="space-between">
+            <Label text="Uwaga" textWrap="true"></Label>
+            <Label class="fas" (tap)="closeModal()" text="&#xf00d;"></Label>
+        </FlexboxLayout>
+        <FlexboxLayout flexDirection="column" top="10">
+            <Label text="Jesteś w trybie offline" class="alert__modal__description" textWrap="true"></Label>
+        </FlexboxLayout>
+    </FlexboxLayout>
+</FlexboxLayout>

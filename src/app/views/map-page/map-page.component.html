@@ -1,0 +1,48 @@
+<GridLayout rows="*, auto, auto">
+    <ActionBar class="actionbar">
+        <GridLayout columns="auto, *, auto, auto">
+            <Label col="0" text="Alerty" fontSize="24"></Label>
+            <Label col="3" class="fas" [nsRouterLink]="['/views/alerts']" text="&#xf0c9;" marginRight="15"></Label>
+        </GridLayout>
+    </ActionBar>
+
+    <StackLayout orientation="vertical">
+        <AbsoluteLayout #mapAbsoluteLayout width="100%" height="100%">
+
+            <StackLayout width="100%" height="100%" orientation="vertical" top="0" left="0">
+                <ContentView width="100%" height="100%" #mapContainer>
+                    <Mapbox mapStyle="traffic_day">
+                    </Mapbox>
+                </ContentView>
+            </StackLayout>
+
+            <FlexboxLayout top="30" width="100%" justifyContent="center">
+                <FlexboxLayout class="alert__modal" flexDirection="column" *ngIf="isAlertShow">
+                    <FlexboxLayout justifyContent="space-between">
+                        <Label [text]="alertName" textWrap="true"></Label>
+                        <Label class="fas" (tap)="closeModal()" text="&#xf00d;"></Label>
+                    </FlexboxLayout>
+                    <FlexboxLayout flexDirection="column" top="10">
+                        <Label [text]="alertDescription" class="alert__modal__description" textWrap="true"></Label>
+                    </FlexboxLayout>
+                </FlexboxLayout>
+            </FlexboxLayout>
+
+            <FlexboxLayout justifyContent="center" alignItems="center" *ngIf="isMapLoading" class="spinner" top="0"
+                left="0">
+                <FlexboxLayout class="loader">
+                    <Label class="loader__2"></Label>
+                </FlexboxLayout>
+            </FlexboxLayout>
+
+            <ns-connection-modal></ns-connection-modal>
+
+            <FlexboxLayout *ngIf="connectionType == 0" width="100%" top="140" justifyContent="center"
+                alignItems="center">
+                <Label text="&#xf01e;" class="fas refresh__icon" (tap)="refresh()"></Label>
+            </FlexboxLayout>
+        </AbsoluteLayout>
+    </StackLayout>
+
+    <ns-bottom-nav></ns-bottom-nav>
+</GridLayout>

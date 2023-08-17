@@ -1,0 +1,45 @@
+<GridLayout rows="*, auto">
+    <ActionBar class="actionbar">
+        <GridLayout columns="auto, *,auto, auto">
+            <Label col="0" text="Alerty" fontSize="24"></Label>
+            <Label col="3" class="fas" text="&#xf279;" [nsRouterLink]="['/views/map-page']" marginRight="15"></Label>
+        </GridLayout>
+    </ActionBar>
+
+    <ScrollView orientation="vertical">
+        <FlexboxLayout flexDirection="column" *ngIf="pushNotificationsAllow && isArrayEmpty(); else noData" class="alert__back">
+            <StackLayout *ngFor="let alert of filteredAlerts" class="alert__container">
+                <StackLayout row="1" class="alert" (tap)="navigateToLocation(alert)">
+                    <FlexboxLayout justifyContent="space-between" alignItems="center">
+                        <Label [text]="alert.name" class="alert__name" textWrap="true"></Label>
+                        <Label text="" class="alert__horizontal__line"></Label>
+                    </FlexboxLayout>
+                    <Label [text]="alert.description" class="alert__description" textWrap="true"></Label>
+                    <FlexboxLayout justifyContent="flex-end">
+                        <Label class="fas alert__icon" text="&#xf017;"></Label>
+                        <Label class="alert__container__date"
+                            [text]="'Obowiązuje od ' + (alert.valid_from | date:'dd.MM.yyyy') + ' do ' + (alert.valid_to | date:'dd.MM.yyyy')"></Label>
+                    </FlexboxLayout>
+                </StackLayout>
+            </StackLayout>
+        </FlexboxLayout>
+        <ng-template #noData>
+            <FlexboxLayout flexDirection="column" justifyContent="center" alignItems="center" class="alert">
+                <Label text="Brak alertów" class="alert__name"></Label>
+                <Label text="&#xf01e;" class="fas refresh__icon" (tap)="refresh()"></Label>
+            </FlexboxLayout>
+        </ng-template>
+    </ScrollView>
+    <AbsoluteLayout>
+        <FlexboxLayout top="0" left="0" class="spinner" *ngIf="isAlertsLoad" justifyContent="center"
+            alignItems="center">
+            <FlexboxLayout class="loader">
+                <Label class="loader__2"></Label>
+            </FlexboxLayout>
+        </FlexboxLayout>
+
+        <ns-connection-modal></ns-connection-modal>
+    </AbsoluteLayout>
+
+    <ns-bottom-nav></ns-bottom-nav>
+</GridLayout>

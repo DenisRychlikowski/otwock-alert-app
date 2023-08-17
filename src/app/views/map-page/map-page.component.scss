@@ -1,0 +1,84 @@
+$light-white: aliceblue;
+$dark-black: #1D1D1D;
+$red: rgb(255, 40, 40);
+$red-easy: rgba(255, 40, 40, 0.5);
+
+.actionbar {
+  background-color: $red;
+
+  Label {
+    color: $light-white;
+  }
+
+  &.ns-dark {
+    background-color: $dark-black;
+  }
+}
+
+.spinner {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+
+  .loader {
+    width: 48;
+    height: 48;
+    border-radius: 50;
+    background: $light-white;
+    animation: animloader 2s ease-in-out infinite;
+
+    &__2 {
+      width: 48;
+      height: 48;
+      transform: scale(0);
+      border-radius: 50;
+      background: $red;
+      animation: animloader 2s ease-in-out 1s infinite;
+    }
+  }
+}
+
+.alert__modal {
+  background-color: $red-easy;
+  color: $light-white;
+  width: 80%;
+  border-radius: 15 0 15 0;
+  padding: 20 30;
+  font-size: 18;
+  font-weight: 600;
+
+  &.ns-dark {
+    background-color: $dark-black;
+    color: $light-white;
+  }
+
+  &__description {
+    color: $light-white;
+    font-size: 14;
+    font-weight: 500;
+
+    &.ns-dark {
+      color: $light-white;
+    }
+  }
+}
+
+.refresh__icon {
+  background-color: rgba(107, 107, 107, 0.4);
+  padding: 10;
+  border-radius: 50;
+}
+
+@keyframes animloader {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(0);
+    opacity: 1;
+  }
+}

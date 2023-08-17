@@ -1,0 +1,69 @@
+.actionbar {
+  background-color: rgb(255, 40, 40);
+}
+.actionbar Label {
+  color: aliceblue;
+}
+.actionbar.ns-dark {
+  background-color: #1D1D1D;
+}
+
+.spinner {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.spinner .loader {
+  width: 48;
+  height: 48;
+  border-radius: 50;
+  background: aliceblue;
+  animation: animloader 2s ease-in-out infinite;
+}
+.spinner .loader__2 {
+  width: 48;
+  height: 48;
+  transform: scale(0);
+  border-radius: 50;
+  background: rgb(255, 40, 40);
+  animation: animloader 2s ease-in-out 1s infinite;
+}
+
+.alert__modal {
+  background-color: rgba(255, 40, 40, 0.5);
+  color: aliceblue;
+  width: 80%;
+  border-radius: 15 0 15 0;
+  padding: 20 30;
+  font-size: 18;
+  font-weight: 600;
+}
+.alert__modal.ns-dark {
+  background-color: #1D1D1D;
+  color: aliceblue;
+}
+.alert__modal__description {
+  color: aliceblue;
+  font-size: 14;
+  font-weight: 500;
+}
+.alert__modal__description.ns-dark {
+  color: aliceblue;
+}
+
+.refresh__icon {
+  background-color: rgba(107, 107, 107, 0.4);
+  padding: 10;
+  border-radius: 50;
+}
+
+@keyframes animloader {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(0);
+    opacity: 1;
+  }
+}/*# sourceMappingURL=map-page.component.css.map */

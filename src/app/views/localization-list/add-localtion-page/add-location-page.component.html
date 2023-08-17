@@ -1,0 +1,123 @@
+<GridLayout rows="*, auto, auto">
+    <ActionBar class="actionbar">
+        <GridLayout columns="auto, *, auto">
+            <Label col="0" class="fas" (tap)="goBack()" text="&#xf060;" marginRight="15"></Label>
+            <Label col="1" text="Dodawanie lokalizacji" fontSize="24"></Label>
+        </GridLayout>
+    </ActionBar>
+
+    <FlexboxLayout flexDirection="column" class="location">
+
+        <AbsoluteLayout>
+            <FlexboxLayout top="0" width="100%" justifyContent="center" *ngIf="isWarnShow">
+                <FlexboxLayout class="location__modal" flexDirection="column">
+                    <FlexboxLayout justifyContent="center" padding="15">
+                        <Label text="Dodano lokalizację pomyślnie" class="location__modal__description"
+                            textWrap="true"></Label>
+                    </FlexboxLayout>
+                    <FlexboxLayout justifyContent="center" width="100%">
+                        <Label text="Ok" (tap)="closeModal()"></Label>
+                    </FlexboxLayout>
+                </FlexboxLayout>
+            </FlexboxLayout>
+
+            <ns-connection-modal></ns-connection-modal>
+        </AbsoluteLayout>
+
+        <StackLayout [formGroup]="myForm" class="location__form">
+            <FlexboxLayout flexDirection="column">
+                <Label class="location__form__title" text="Wybierz województwo: *"></Label>
+                <TextField hint="-- wybierz województwo --" class="location__form__field" formControlName="province"
+                    autocorrect="true" [(ngModel)]="province" (focus)="provinceFocus = true"
+                    (blur)="provinceFocus = false">
+                </TextField>
+                <StackLayout *ngIf="provinceFocus">
+                    <ListView [items]="filterProvinceData()">
+                        <ng-template let-item="item">
+                            <FlexboxLayout justifyContent="center" (tap)="addToProvinceTextField(item)">
+                                <Label class="list__item" [text]="item.name | titlecase"></Label>
+                            </FlexboxLayout>
+                        </ng-template>
+                    </ListView>
+                </StackLayout>
+            </FlexboxLayout>
+
+            <FlexboxLayout flexDirection="column">
+                <Label class="location__form__title" text="Wybierz powiat: *"></Label>
+                <TextField hint="-- wybierz powiat --" class="location__form__field" formControlName="district"
+                    autocorrect="true" [(ngModel)]="district" (focus)="districtFocus = true"
+                    (blur)="districtFocus = false">
+                </TextField>
+                <StackLayout height="auto" *ngIf="districtFocus">
+                    <ListView [items]="filterDistrictData()">
+                        <ng-template let-item="item">
+                            <FlexboxLayout justifyContent="center" (tap)="addToDistrictTextField(item)">
+                                <Label [text]="item.name | titlecase" class="list__item"></Label>
+                            </FlexboxLayout>
+                        </ng-template>
+                    </ListView>
+                </StackLayout>
+            </FlexboxLayout>
+
+            <FlexboxLayout flexDirection="column">
+                <Label class="location__form__title" text="Wybierz gminę: *"></Label>
+                <TextField hint="-- wybierz gminę --" class="location__form__field" formControlName="commune"
+                    autocorrect="true" [(ngModel)]="commune" (focus)="communeFocus = true"
+                    (blur)="communeFocus = false"></TextField>
+                <StackLayout height="auto" *ngIf="communeFocus">
+                    <ListView [items]="filterCommuneData()">
+                        <ng-template let-item="item">
+                            <FlexboxLayout justifyContent="center" (tap)="addToCommuneTextField(item)">
+                                <Label [text]="item.name | titlecase" class="list__item"></Label>
+                            </FlexboxLayout>
+                        </ng-template>
+                    </ListView>
+                </StackLayout>
+            </FlexboxLayout>
+
+            <FlexboxLayout flexDirection="column">
+                <Label class="location__form__title" text="Wybierz miasto: *"></Label>
+                <TextField hint="-- wybierz miasto --" class="location__form__field" formControlName="cities"
+                    autocorrect="true" [(ngModel)]="cities" (focus)="citiesFocus = true" (blur)="citiesFocus = false">
+                </TextField>
+                <StackLayout height="auto" *ngIf="citiesFocus">
+                    <ListView [items]="filterCitiesData()">
+                        <ng-template let-item="item">
+                            <FlexboxLayout justifyContent="center" (tap)="addToCitiesTextField(item)">
+                                <Label [text]="item.name | titlecase" class="list__item"></Label>
+                            </FlexboxLayout>
+                        </ng-template>
+                    </ListView>
+                </StackLayout>
+            </FlexboxLayout>
+
+            <FlexboxLayout flexDirection="column">
+                <Label class="location__form__title" text="Wybierz ulicę: *"></Label>
+                <TextField hint="-- wybierz ulicę --" class="location__form__field" formControlName="street"
+                    autocorrect="true" [(ngModel)]="street" (focus)="streetFocus = true" (blur)="streetFocus = false">
+                </TextField>
+                <StackLayout height="auto" *ngIf="streetFocus">
+                    <ListView [items]="filterStreetData()">
+                        <ng-template let-item="item">
+                            <FlexboxLayout justifyContent="center" (tap)="addToStreetTextField(item)">
+                                <Label [text]="item.name | titlecase" class="list__item"></Label>
+                            </FlexboxLayout>
+                        </ng-template>
+                    </ListView>
+                </StackLayout>
+            </FlexboxLayout>
+
+            <FlexboxLayout flexDirection="column" *ngIf="street_name != 'brak ulicy'">
+                <Label class="location__form__title" text="Podaj numer mieszkania/domu: *"></Label>
+                <TextField hint="-- podaj numer --" class="location__form__field" formControlName="number_street"
+                    autocorrect="true" [(ngModel)]="numberStreet" (focus)="numberStreetFocus = true"
+                    (blur)="numberStreetFocus = false">
+                </TextField>
+            </FlexboxLayout>
+            <Button text="Dodaj lokalizację" class="location__form__btn" (tap)="onSubmit()"
+                [isEnabled]="myForm.valid"></Button>
+        </StackLayout>
+    </FlexboxLayout>
+
+    <ns-bottom-nav></ns-bottom-nav>
+</GridLayout>

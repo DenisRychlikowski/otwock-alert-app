@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "304467330114",
+    "project_id": "otwock-alert-94a8e",
+    "storage_bucket": "otwock-alert-94a8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304467330114:android:67364f2df71dec50e519db",
+        "android_client_info": {
+          "package_name": "org.nativescript.otwockalertapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304467330114-954fn33fbs1id0chnee7ikkk9q3722tg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIdJYXoeSpGqyWcujz6SzUI3EQJFIeSbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "304467330114-954fn33fbs1id0chnee7ikkk9q3722tg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

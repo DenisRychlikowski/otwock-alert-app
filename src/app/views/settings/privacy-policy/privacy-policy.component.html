@@ -1,0 +1,11 @@
+<GridLayout rows="*, auto, auto">
+    <ActionBar class="actionbar">
+        <GridLayout columns="auto, *, auto">
+            <Label col="0" class="fas" (tap)="goBack()" text="&#xf060;" marginRight="15"></Label>
+            <Label col="1" text="Polityka prywatności" fontSize="24"></Label>
+        </GridLayout>
+    </ActionBar>
+    <FlexboxLayout>
+        <HtmlView [html]="privacyPolicyString"></HtmlView>
+    </FlexboxLayout>
+</GridLayout>

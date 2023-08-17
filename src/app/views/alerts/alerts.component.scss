@@ -1,0 +1,125 @@
+$gray-light: rgba(108, 119, 146, 0.7);
+$gray-dark: #17171a;
+$pastel-red-easy: rgba(254, 58, 58, 0.2);
+$dark-black: #1D1D1D;
+$light-white: aliceblue;
+$light-white-medium: rgba(240, 248, 255, 0.6);
+$gray-dark-medium: rgba(45, 45, 45);
+$red: rgb(255, 40, 40);
+$red-easy: rgba(255, 40, 40, 0.8);
+
+.actionbar {
+    background-color: $red;
+
+    Label {
+        color: $light-white;
+    }
+
+    &.ns-dark {
+        background-color: $dark-black;
+    }
+}
+
+.spinner {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.alert__back {
+    background-color: $light-white;
+
+    &.ns-dark {
+        background-color: $dark-black;
+    }
+}
+
+.alert__container {
+    height: 100%;
+    padding: 20 30;
+
+    .alert {
+        border-radius: 15 0 15 0;
+        width: 350;
+        height: auto;
+        padding: 5;
+        background-color: $red-easy;
+
+        &.ns-dark {
+            background-color: $gray-dark-medium;
+        }
+
+        &__name {
+            padding: 5 10 5 10;
+            font-weight: 500;
+            width: 280;
+            color: $light-white;
+        }
+
+        &__horizontal__line {
+            height: 2;
+            width: 50;
+            background-color: #c0c0c0;
+            margin-right: 15;
+        }
+
+        &__description {
+            color: $light-white;
+            height: auto;
+            padding: 10;
+            font-size: 15;
+        }
+
+        &__icon {
+            color: $light-white;
+            font-size: 12;
+            padding-right: 10;
+            margin: auto;
+        }
+    }
+
+    &__date {
+        font-size: 12;
+        padding-right: 10;
+        padding-bottom: 5;
+        margin: auto;
+        color: $light-white-medium;
+    }
+}
+
+.refresh__icon {
+    background-color: rgba(107, 107, 107, 0.4);
+    padding: 10;
+    border-radius: 50;
+}
+
+.loader {
+    width: 48;
+    height: 48;
+    border-radius: 50;
+    background: $light-white;
+    animation: animloader 2s ease-in-out infinite;
+
+    &__2 {
+        width: 48;
+        height: 48;
+        transform: scale(0);
+        border-radius: 50;
+        background: $red;
+        animation: animloader 2s ease-in-out 1s infinite;
+    }
+}
+
+@keyframes animloader {
+
+    0%,
+    100% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}

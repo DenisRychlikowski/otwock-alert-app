@@ -1,0 +1,25 @@
+<FlexboxLayout row="2" justifyContent="space-around" paddingTop="10" paddingBottom="10">
+    <FlexboxLayout flexDirection="column" justifyContent="space-around" alignItems="center"
+        [nsRouterLink]="['/views/alerts']" [class.active-link]="isComponentSelected('/views/alerts')">
+        <Label class="fas" text="&#xf279;"></Label>
+        <Label class="menu__label" text="Alerty"></Label>
+    </FlexboxLayout>
+    <FlexboxLayout flexDirection="column" justifyContent="space-around" alignItems="center"
+        [nsRouterLink]="['/views/notifications']" [class.active-link]="isComponentSelected('/views/notifications')">
+        <Label class="fas" text="&#xf0f3;"></Label>
+        <Label class="menu__label" text="Powiadomienia"></Label>
+    </FlexboxLayout>
+    <FlexboxLayout flexDirection="column" justifyContent="space-around" alignItems="center"
+        [nsRouterLink]="['/views/localization-list']"
+        [class.active-link]="isComponentSelected('/views/localization-list')">
+        <Label class="fas" text="&#xf689;"></Label>
+        <Label class="menu__label" text="Lista lokalizacji"></Label>
+    </FlexboxLayout>
+    <FlexboxLayout height="100%" flexDirection="column" justifyContent="space-around" alignItems="center"
+        [nsRouterLink]="['/views/settings']" [class.active-link]="isComponentSelected('/views/settings')">
+        <FlexboxLayout flexDirection="column" top="0" justifyContent="center" alignItems="center">
+            <Label class="fas" text="&#xf013;"></Label>
+            <Label class="menu__label" text="Ustawienia"></Label>
+        </FlexboxLayout>
+    </FlexboxLayout>
+</FlexboxLayout>
